@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    #tblContainer, #tblcollections, #tblCRUD, td {
+        border: double;
+    }
+
+    th {
+        background-color: darkgray;
+    }
+
+    #dvcollection {
+        height: 500px;
+        overflow-y: scroll;
+    }
+</style>
+
+
+
+<h2>The Employee Details</h2>
+<table ng-app="crudModule" ng-controller="crudController">
+    <tbody>
+        <tr>
+            <td>
+                <table id="tblCRUD">
+                    <tr><td><span>EmpNo</span></td><td><input type="text" ng-model="empno" /></td></tr>
+                    <tr><td><span>EmpName</span></td><td><input type="text" ng-model="empname"/></td></tr>
+                    <tr><td><span>Salary</span></td><td><input type="text" ng-model="salary"/></td></tr>
+                    <tr><td><span>Dept</span></td><td><input type="text" ng-model="dept" /></td></tr>
+                    <tr><td><span>Designation</span></td><td><input type="text" ng-model="des" /></td></tr>
+                    <tr><td><input type="button" value="new" id="new" ng-click="clear()" /></td><td><input type="button" value="save" ng-click="save()" /></td><td><input type="button" id="delete" value="delete" ng-click="delete()"/></td></tr>
+                </table>
+                {{Message}}
+            </td>
+            <td>
+                <table id="tblCollection">
+                    <thead>
+                        <tr>
+                            <th>EmpNo</th>
+                            <th>EmpName</th>
+                            <th>Salary</th>
+                            <th>Dept</th>
+                            <th>Designation</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="emp in Employees">
+                        <tr ng-click="get(emp)">
+                            <td>{{emp.EmpNo}}</td>
+                            <td>{{emp.EmpName}}</td>
+                            <td>{{emp.Salary}}</td>
+                            <td>{{emp.Dept}}</td>
+                            <td>{{emp.Designation}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<script src="~/scripts/angular.js"></script>
+<script src="~/scripts/angular-route.js"></script>
+<script src="~/scripts/myScript/Module.js"></script>
+<script src="~/scripts/myScript/Service.js"></script>
+<script src="~/scripts/myScript/Controller.js"></script>
